@@ -1,20 +1,19 @@
 package spring_data.spring_data;
 
-import static org.junit.Assert.assertTrue;
-
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-/**
- * Unit test for simple App.
- */
-public class AppTest 
-{
-    /**
-     * Rigorous Test :-)
-     */
-    @Test
-    public void shouldAnswerWithTrue()
-    {
-        assertTrue( true );
-    }
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(locations = {"classpath:META-INF/spring-config.xml"})
+public class AppTest {
+	
+	@Test
+	public void testeSpring() {
+		
+		System.out.println("Spring iniciou com sucesso!!");
+		
+	}
+	
 }
