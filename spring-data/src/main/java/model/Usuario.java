@@ -14,7 +14,7 @@ public class Usuario {
 	
 	private String nome;
 	private String email;
-	private String idade;
+	private int idade;
 	private String login;
 	private String senha;
 	
@@ -36,10 +36,10 @@ public class Usuario {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getIdade() {
+	public int getIdade() {
 		return idade;
 	}
-	public void setIdade(String idade) {
+	public void setIdade(int idade) {
 		this.idade = idade;
 	}
 	public String getLogin() {
@@ -54,6 +54,13 @@ public class Usuario {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
+	@Override
+	public String toString() {
+		return "Usuario [id=" + id + ", nome=" + nome + ", email=" + email + ", idade=" + idade + ", login=" + login
+				+ ", senha=" + senha + "]";
+	}
+	
+	
 	
 	
 	
