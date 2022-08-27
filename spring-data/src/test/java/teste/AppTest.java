@@ -1,4 +1,4 @@
-package spring_data.spring_data;
+package teste;
 
 import java.util.List;
 import java.util.Optional;
@@ -9,7 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import dao.SpringDataTelefone;
 import dao.SpringDataUsuario;
+import model.Telefone;
 import model.Usuario;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -18,6 +20,9 @@ public class AppTest {
 	
 	@Autowired
 	private SpringDataUsuario springDataUsuario;
+	
+	@Autowired
+	private SpringDataTelefone springDataTelefone;
 	
 	@Test
 	public void testeSpring() {
@@ -126,5 +131,31 @@ public class AppTest {
 		System.out.println("Editado com sucesso!!");
 	}
 	
+	@Test
+	public void testeInsertTelefone() {
+		
+		Optional<Usuario> aux = springDataUsuario.findById(1L);
+		Usuario u = aux.get();
+		
+		Telefone tel = new Telefone();
+		tel.setNumero("44444444");
+		tel.setUsuario(u);
+		
+		springDataTelefone.save(tel);
+		
+		System.out.println("Telefone salvo com sucesso!!");
+	}
+	
+	@Test
+	public void testeConsultaTodosTelefones() {
+		
+		Optional<Usuario> aux = springDataUsuario.findById(1L);
+		Usuario u = aux.get();
+		
+		for(Telefone t : u.getListaTelefone()) {
+			System.out.println(t);
+		}
+		
+	}
 	
 }
